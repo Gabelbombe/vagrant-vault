@@ -5,7 +5,7 @@
       ":ip": "192.168.33.10",
       "ports": [],
       ":memory": 1024,
-      ":bootstrap": "bootstrap/node.sh",
+      ":bootstrap": "bootstrap/vault.sh",
       ":config": "/vagrant/config/nodes/vault01.json"
     },
     "node02": {
@@ -13,7 +13,7 @@
       ":ip": "17192.168.33.20",
       "ports": [],
       ":memory": 1024,
-      ":bootstrap": "bootstrap/node.sh",
+      ":bootstrap": "bootstrap/vault.sh",
       ":config": "/vagrant/config/nodes/vault02.json"
     },
     "node03": {
@@ -21,7 +21,7 @@
       ":ip": "192.168.33.30",
       "ports": [],
       ":memory": 1024,
-      ":bootstrap": "bootstrap/node.sh",
+      ":bootstrap": "bootstrap/vault.sh",
       ":config": "/vagrant/config/nodes/vault03.json"
     }
   }
