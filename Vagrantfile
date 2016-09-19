@@ -12,7 +12,8 @@ Vagrant.configure(2) do | config |
   nodes_config.each do | node |
    node_name   = node[0]
    node_values = node[1]
-   node_leader = node[1]['leader']
+
+   node_leader = node[1]['leader'] #bool
 
    config.vm.define node_name do | config |
      config.vm.hostname = node_name
