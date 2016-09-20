@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "node01": {
+    "vault01": {
       "leader": true,
       ":ip": "192.168.33.10",
       "ports": [],
@@ -8,7 +8,7 @@
       ":bootstrap": "bootstrap/vault.sh",
       ":config": "/vagrant/config/nodes/vault01.json"
     },
-    "node02": {
+    "vault02": {
       "leader": false,
       ":ip": "17192.168.33.20",
       "ports": [],
@@ -16,7 +16,7 @@
       ":bootstrap": "bootstrap/vault.sh",
       ":config": "/vagrant/config/nodes/vault02.json"
     },
-    "node03": {
+    "vault03": {
       "leader": false,
       ":ip": "192.168.33.30",
       "ports": [],

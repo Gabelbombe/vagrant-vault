@@ -15,11 +15,13 @@ Vagrant.configure(2) do | config |
 
    node_leader = node[1]['leader'] #bool
 
-   config.vm.define node_name do | config |
+   ## define leadership
+   config.vm.define node_name, primary: node_leader do | config |
      config.vm.hostname = node_name
 
-     ## Configure OTF port assigment for forwarding
+     ## configure OTF port assigment for forwarding
      ports = node_values['ports']
+
      ports.each do | port |
        config.vm.network :forwarded_port,
          host:  port[':host'],
@@ -27,7 +29,7 @@ Vagrant.configure(2) do | config |
          id:    port[':id']
      end
 
-     ## configure
+     ## configure vbox with name/mem/cpu etc
      config.vm.provider :virtualbox do | vb |
        #vb.gui = true
        vb.customize ["modifyvm", :id, "--memory",  node_values[':memory']]
@@ -40,6 +42,12 @@ Vagrant.configure(2) do | config |
         script.path = node_values[':bootstrap']
         script.args = node_values[':config']
       end
+
+      ## could possibly be collapsed into bootstraps
+      config.vm.provision :shell do | script |
+         script.path = node_values[':bootstrap']
+         script.args = node_values[':config']
+       end
    end
   end
 end

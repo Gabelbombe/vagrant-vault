@@ -10,14 +10,13 @@ yum makecache fast
 yum install -y curl unzip epel-release yum-utils nginx vim ca-certificates jq
 
 ## create struct
-mkdir -p /etc/vault
+mkdir -p /opt/vault
 
-mkdir -p /etc/consul/server    \
-         /etc/consul/bootstrap \
-         /etc/consul-template
-
-mkdir -p /var/lib/consul       \
+mkdir -p /opt/consul/{server,bootstrap} \
+         /opt/consul-template           \
          /opt/consul-ui
+
+mkdir -p /var/lib/consul
 
 ## Consul installation switch
 if [[ ! -f /usr/local/bin/consul ]] ; then
@@ -69,8 +68,8 @@ if [[ ! $(grep '/usr/local/bin' /root/.bash_profile) ]] ; then
   echo -e 'alias vi=/usr/bin/emacs -nw'
 fi
 
-cp '/vagrant/vault.hcl' '/etc/vault/vault.hcl'
-cp '/vagrant/consul-bootstrap.json' '/etc/consul/bootstrap/config.json'
-cp '/vagrant/consul-server.json' '/etc/consul/server/config.json'
-cp '/vagrant/consul.service' '/etc/systemd/system/consul.service'
-cp '/vagrant/vault.service' '/etc/systemd/system/vault.service'
+cp '/vagrant/vault.hcl'               '/etc/vault/vault.hcl'
+cp '/vagrant/consul-bootstrap.json'   '/etc/consul/bootstrap/config.json'
+cp '/vagrant/consul-server.json'      '/etc/consul/server/config.json'
+cp '/vagrant/consul.service'          '/etc/systemd/system/consul.service'
+cp '/vagrant/vault.service'           '/etc/systemd/system/vault.service'
