@@ -4,6 +4,7 @@ cd /root/
 ## update/upgrade
 yum update -y
 yum upgrade -y
+yum makecache fast
 
 ## install reqs
 yum install -y curl unzip epel-release yum-utils nginx vim ca-certificates jq
