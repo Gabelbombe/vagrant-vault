@@ -38,16 +38,15 @@ Vagrant.configure(2) do | config |
 
      config.vm.network :private_network, ip: node_values[':ip']
 
+     config.vm.provision :shell, path: 'bootstrap/provision.sh'
+
      config.vm.provision :shell do | script |
         script.path = node_values[':bootstrap']
         script.args = node_values[':config']
       end
 
       ## could possibly be collapsed into bootstraps
-      config.vm.provision :shell do | script |
-         script.path = node_values[':bootstrap']
-         script.args = node_values[':config']
-       end
+      config.vm.provision :shell, path: 'bootstrap/reset.sh'
    end
   end
 end
