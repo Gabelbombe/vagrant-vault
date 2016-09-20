@@ -1,0 +1,4 @@
+{
+  "bind_addr":  "192.168.33.20",
+  "openssl_cn": "vault02"
+}
